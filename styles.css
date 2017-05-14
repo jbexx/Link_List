@@ -7,11 +7,15 @@ body {
   margin: 0;
 }
 
+.parent {
+  display: flex;
+  flex-direction: column;
+}
+
 .child-1 {
   background-color: #455a64;
   overflow: hidden;
-  width: 100%;
-  height: 40vh;
+  height: 40%;
 }
 
 h1 {
@@ -34,7 +38,7 @@ h1 {
   height: 35px;
   margin: 15px auto;
   padding-left: 8px;
-  width: 75%;
+  width: 85%;
 }
 
 #enter-button {
@@ -46,22 +50,90 @@ h1 {
 
 #enter-button:hover {
   background-color: #ffd773;
+  color: #fff;
+}
+
+.input:focus {
+  outline-color: #cfd8dc;
+  outline-style: outset;
+  outline-width: 2px;
 }
 
 .child-2 {
   background-color: #cfd8dc;
-  width: 100%;
-  height: 60vh;
+  height: 60%;
+  overflow: hidden;
 }
 
+#bookmark {
+  background-color: #fff;
+  border: 2px solid #607d8b;
+  margin: 20px;
+}
+
+hr {
+  margin: 10px;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(207, 216, 220, 0.20), rgba(207, 216, 220, 1), rgba(207, 216, 220, 0.20));
+}
+
+#site-title {
+  color: #455a64;
+  font-size: 1.3em;
+  margin: 5px 10px;
+}
+
+.clickable {
+  background: none;
+  border: none;
+  color: #607d8b;
+  margin: 0 10px;
+  text-decoration: underline;
+  text-decoration-color: #f2f4f4;
+}
+
+.clickable:hover {
+  text-decoration: underline;
+  text-decoration-color: #ffc107;
+}
+
+.clickable:focus {
+  outline: 0;
+}
+
+#delete {
+}
+
+#site-url:hover,
+#read:hover {
+  font-weight: 800;
+}
 
 /*=======Media Queries=======*/
 
-@media (min-wdith: 769) {
+@media screen and (min-width: 894px) {
 .parent {
-  display: flex;
+  flex-direction: row;
 }
 
+.child-1,
+.child-2 {
+  height: 100vh;
+  width: 50%
+}
 
+.child-1 {
+  align-content: center;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+.logo {
+  height: 45px;
+  margin: 0 10px;
+}
 
 }
