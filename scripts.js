@@ -31,3 +31,35 @@ function recordPrepend() {
 function createRecord(title, url) {
 
 }
+
+function readRecord() {
+
+}
+
+function deleteRecord() {
+
+}
+
+// function omitError(?){
+//
+// }
+
+// function recordCount(?) {
+//
+// }
+
+// function readRecordCount(?) {
+//
+// }
+
+// function unreadRecordCount(?) {
+//
+// }
+
+// function clearRead(?) {
+//
+// }
+
+// function validURL(? {
+//
+// })
