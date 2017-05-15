@@ -4,8 +4,8 @@ var enterInput = document.getElementByID('enter-button');
 var readInput = document.getElementByID('read');
 var deleteInput = document.getElementByID('delete');
 var recordCount = 0;
-var recordObject = new Object();
-var recordObjectArray = new Array[];
+var LinkRecord = new Object(title, url, read)
+var LinkObjectArray = new Array[];
 
 titleInput.addEventListener('click', function () {
 
@@ -40,7 +40,6 @@ function createRecord(title, url) {
       alert("Your URL is invalid!")
     } else {
       recordCount++;
-      // HTML/CSS record injection
       // Should probably be modeled as an Object Array
       // Some functions below should be rolled into the Object    // constructor
     }
