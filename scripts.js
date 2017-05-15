@@ -4,8 +4,6 @@ var enterInput = document.getElementByID('enter-button');
 var readInput = document.getElementByID('read');
 var deleteInput = document.getElementByID('delete');
 var recordCount = 0;
-var LinkRecord = new Object(title, url, read)
-var LinkObjectArray = new Array[];
 
 titleInput.addEventListener('click', function () {
 
@@ -24,14 +22,16 @@ readInput.addEventListener('click', function () {
 });
 
 deleteInput.addEventListener('click', function () {
-
+  
 });
 
-function recordPrepend() {
+function recordPrepend(id) {
 
 }
 
 function createRecord(title, url) {
+  var idNumber = 0;
+  var
     if (title === null) {
       alert("You are missing the title!")
     } else if (url === null) {
@@ -40,8 +40,8 @@ function createRecord(title, url) {
       alert("Your URL is invalid!")
     } else {
       recordCount++;
-      // Should probably be modeled as an Object Array
-      // Some functions below should be rolled into the Object    // constructor
+      idNumber++;
+      recordPrepend(idNumber);
     }
 }
 
@@ -51,21 +51,27 @@ function readRecord() {
 
 function deleteRecord() {
     recordCount--;
+    $( "li.item-a" ).parent().remove;
 }
 
-// function readRecordCount(?) {
-//   Should be property in Record Objects
-// }
+function readRecordCount(?) {
+  return $('.read').length;
+}
 
-// function unreadRecordCount(?) {
-//   Should be property in Record Objects
-// }
+function unreadRecordCount(?) {
+  return recordCount - readRecordCount();
+}
 
-// function clearRead(?) {
-//    Should target Objects with read property as true
-//    Should subtract total from recordCount
-// }
+function clearRead() {
+  $( ".read" ).remove();
+}
 
-// function validURL(url) {
-//    Find prebuilt/builtin function that makes this check
-// })
+function validURL(url) {
+  var pattern = new RegExp('^(https?:\\/\\/)?'+
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+
+    '(\\#[-a-z\\d_]*)?$','i');
+ return pattern.test(url);
+ }
