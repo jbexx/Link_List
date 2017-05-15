@@ -4,6 +4,9 @@ var enterInput = document.getElementByID('enter-button');
 var readInput = document.getElementByID('read');
 var deleteInput = document.getElementByID('delete');
 var recordCount = 0;
+var recordObject = new Object();
+var recordObjectArray = new Array[];
+
 titleInput.addEventListener('click', function () {
 
 });
@@ -29,7 +32,18 @@ function recordPrepend() {
 }
 
 function createRecord(title, url) {
-    recordCount++;
+    if (title === null) {
+      alert("You are missing the title!")
+    } else if (url === null) {
+      alert("You are missing the URL!")
+    } else if (!validURL(url)) {
+      alert("Your URL is invalid!")
+    } else {
+      recordCount++;
+      // HTML/CSS record injection
+      // Should probably be modeled as an Object Array
+      // Some functions below should be rolled into the Object    // constructor
+    }
 }
 
 function readRecord() {
@@ -40,24 +54,19 @@ function deleteRecord() {
     recordCount--;
 }
 
-// function omitError(?){
-//    Should use && logic to verify no omission
-// }
-
-
 // function readRecordCount(?) {
-//   Should store in array
+//   Should be property in Record Objects
 // }
 
 // function unreadRecordCount(?) {
-//    Should store in array
+//   Should be property in Record Objects
 // }
 
 // function clearRead(?) {
-//    Should target read array
-//    Should subtract .length from recordCount
+//    Should target Objects with read property as true
+//    Should subtract total from recordCount
 // }
 
-// function validURL(? {
-//    Find prebuilt function that makes this check
+// function validURL(url) {
+//    Find prebuilt/builtin function that makes this check
 // })
