@@ -93,6 +93,12 @@ hr {
   text-decoration-color: #f2f4f4;
 }
 
+/*to be injected into the #bookmark div with jquery on read button click*/
+.read {
+  background-color: #f2f4f4;
+  text-decoration-color: #cfd8dc;
+}
+
 .clickable:hover {
   text-decoration: underline;
   text-decoration-color: #ffc107;
@@ -101,10 +107,6 @@ hr {
 .clickable:focus {
   outline: 0;
 }
-
-/*#delete {
-  float: right;
-}*/
 
 #site-url:hover,
 #read:hover {
