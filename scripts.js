@@ -14,49 +14,54 @@ $('#website-url').click(function () {
 
 });
 
-$('#enter-button').click(function () {
+$('#enter-button').on('click', createRecord);
 
-});
-
-$('#read').click(function () {
+$('.child-2').click(function () {
   readRecord();
 });
 
-$('#delete').click(function () {
-  deleteRecord();
-});
+$('.child-2').on('click', '.delete-btn', deleteRecord);
 
 // $(function () {
 //   $('div.bookmark-card').toggleClass('read');
 // });
 
-function recordPrepend(id) {
-  $('child-2').append(`
-    <div id="bookmark-" class="bookmark-card">
-      <h3 class="site-title">${titleInput}</h3>
-      <hr>
-      <a href="" id="${urlInput}" class="siteurl clickable">${urlInput}</a>
-      <hr>
-      <button id="read" class="read-btn clickable" name="read-btn" type="button">Read</button>
-      <button id="delete" class="delete-btn clickable" name="delete-btn" type="button">Delete</button>
-    </div>
-  `)
-}
+// function recordPrepend() {
+//   var titleInput = $('#website-title').val();
+//   var urlInput = $('#website-url').val();
+//   creatRecord(titleInput, urlInput);
 
-function createRecord(title, url) {
-  var idNumber = 0;
 
-    if (title === null) {
+//}
+
+function createRecord() {
+  var titleInput = $('#website-title').val();
+  var urlInput = $('#website-url').val();
+
+    if (titleInput === null) {
       alert("You are missing the title!")
-    } else if (url === null) {
+    } else if (urlInput === null) {
       alert("You are missing the URL!")
-    } else if (!validURL(url)) {
+    } else if (!validURL(urlInput)) {
       alert("Your URL is invalid!")
     } else {
       recordCount++;
-      idNumber++;
-      recordPrepend(idNumber);
+      inject(titleInput, urlInput);
     }
+}
+
+function inject(title, url) {$('.child-2').prepend(`
+  <div class="bookmark">
+    <h3 class="site-title">${title}</h3>
+    <hr>
+    <a href="${url}" class="siteurl clickable">${url}</a>
+    <hr>
+      <div class="flex">
+      <button class="read-btn clickable" name="read-btn" type="button">Read</button>
+      <button class="delete-btn clickable" name="delete-btn" type="button">Delete</button>
+      </div>
+  </div>
+`)
 }
 
 function readRecord() {

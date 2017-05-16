@@ -65,7 +65,7 @@ h1 {
   overflow: hidden;
 }
 
-#bookmark {
+.bookmark {
   background-color: #fff;
   border: 2px solid #607d8b;
   margin: 20px;
@@ -93,6 +93,10 @@ hr {
   text-decoration-color: #f2f4f4;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
 /*to be injected into the #bookmark div with jquery on read button click*/
 .read {
   background-color: #f2f4f4;
@@ -111,6 +115,9 @@ hr {
 .siteurl:hover,
 .read-btn:hover {
   font-weight: 800;
+}
+
+.delete-btn {
 }
 
 /*=======Media Queries=======*/
