@@ -1,28 +1,28 @@
 
-var $titleInput = $('#website-title').val();
+var titleInput = $('#website-title').val();
 var urlInput = $('#website-url').val();
 var enterInput = $('#enter-button');
 var readInput = $('#read');
 var deleteInput = $('#delete');
 var recordCount = 0;
 
-$('#website-title').click(function () {
+$('#website-title').on('click', (function () {
 
 });
 
-$('#website-url').click(function () {
+$('#website-url').on('click', (function () {
 
 });
 
-$('#enter-button').click(function () {
+$('#enter-button').on('click',(function () {
 
 });
 
-$('#read').click(function () {
+$('#read').on('click',(function () {
 
 });
 
-$('#delete').click(function () {
+$('#delete').on('click',(function () {
 
 });
 
