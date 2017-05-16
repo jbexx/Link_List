@@ -1,37 +1,51 @@
-var titleInput = document.getElementByID('website-title').value;
-var urlInput = document.getElementByID('website-url').value;
-var enterInput = document.getElementByID('enter-button');
-var readInput = document.getElementByID('read');
-var deleteInput = document.getElementByID('delete');
+
+var titleInput = $('#website-title').val();
+var urlInput = $('#website-url').val();
+var enterInput = $('#enter-button');
+var readInput = $('#read');
+var deleteInput = $('#delete');
 var recordCount = 0;
 
-titleInput.addEventListener('click', function () {
+$('#website-title').click(function () {
 
 });
 
-urlInput.addEventListener('click', function () {
+$('#website-url').click(function () {
 
 });
 
-enterInput.addEventListener('click', function () {
+$('#enter-button').click(function () {
 
 });
 
-readInput.addEventListener('click', function () {
+$('#read').click(function () {
 
 });
 
-deleteInput.addEventListener('click', function () {
-  
+$('#delete').click(function () {
+
+});
+
+$(function () {
+  $('div.bookmark-card').toggleClass('read');
 });
 
 function recordPrepend(id) {
-
+  $('child-2').append(`
+    <div id="bookmark-" class="bookmark-card">
+      <h3 class="site-title">${titleInput}</h3>
+      <hr>
+      <a href="" id="${urlInput}" class="siteurl clickable">${urlInput}</a>
+      <hr>
+      <button id="read" class="read-btn clickable" name="read-btn" type="button">Read</button>
+      <button id="delete" class="delete-btn clickable" name="delete-btn" type="button">Delete</button>
+    </div>
+  `)
 }
 
 function createRecord(title, url) {
   var idNumber = 0;
-  var
+
     if (title === null) {
       alert("You are missing the title!")
     } else if (url === null) {
@@ -49,16 +63,16 @@ function readRecord() {
 
 }
 
-function deleteRecord() {
+function deleteRecord(id) {
     recordCount--;
     $( "li.item-a" ).parent().remove;
 }
 
-function readRecordCount(?) {
+function readRecordCount(x) {
   return $('.read').length;
 }
 
-function unreadRecordCount(?) {
+function unreadRecordCount(x) {
   return recordCount - readRecordCount();
 }
 
