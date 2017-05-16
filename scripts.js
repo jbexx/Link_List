@@ -1,5 +1,5 @@
 
-var $titleInput = $('#website-title').val();
+var titleInput = $('#website-title').val();
 var urlInput = $('#website-url').val();
 var enterInput = $('#enter-button');
 var readInput = $('#read');
