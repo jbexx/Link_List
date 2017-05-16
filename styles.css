@@ -78,7 +78,7 @@ hr {
   background-image: linear-gradient(to right, rgba(207, 216, 220, 0.20), rgba(207, 216, 220, 1), rgba(207, 216, 220, 0.20));
 }
 
-#site-title {
+.site-title {
   color: #455a64;
   font-size: 1.3em;
   margin: 5px 10px;
@@ -93,6 +93,12 @@ hr {
   text-decoration-color: #f2f4f4;
 }
 
+/*to be injected into the #bookmark div with jquery on read button click*/
+.read {
+  background-color: #f2f4f4;
+  text-decoration-color: #cfd8dc;
+}
+
 .clickable:hover {
   text-decoration: underline;
   text-decoration-color: #ffc107;
@@ -102,18 +108,15 @@ hr {
   outline: 0;
 }
 
-/*#delete {
-  float: right;
-}*/
-
-#site-url:hover,
-#read:hover {
+.siteurl:hover,
+.read-btn:hover {
   font-weight: 800;
 }
 
 /*=======Media Queries=======*/
 
 @media screen and (min-width: 894px) {
+
 .parent {
   flex-direction: row;
 }
@@ -127,13 +130,13 @@ hr {
 .child-1 {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
 .input {
   width: 70%;
 }
+
 h1 {
   font-size: 3.5em;
 }
