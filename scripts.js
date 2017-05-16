@@ -19,16 +19,16 @@ $('#enter-button').click(function () {
 });
 
 $('#read').click(function () {
-
+  readRecord();
 });
 
 $('#delete').click(function () {
   deleteRecord();
 });
 
-$(function () {
-  $('div.bookmark-card').toggleClass('read');
-});
+// $(function () {
+//   $('div.bookmark-card').toggleClass('read');
+// });
 
 function recordPrepend(id) {
   $('child-2').append(`
@@ -60,7 +60,7 @@ function createRecord(title, url) {
 }
 
 function readRecord() {
-
+  $( this ).parent().toggleClass('read');
 }
 
 function deleteRecord() {
