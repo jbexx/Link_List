@@ -23,7 +23,7 @@ $('#read').click(function () {
 });
 
 $('#delete').click(function () {
-
+  deleteRecord();
 });
 
 $(function () {
@@ -63,9 +63,9 @@ function readRecord() {
 
 }
 
-function deleteRecord(id) {
+function deleteRecord() {
     recordCount--;
-    $( "li.item-a" ).parent().remove;
+    $( this ).parent().remove;
 }
 
 function readRecordCount(x) {
