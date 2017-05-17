@@ -16,6 +16,7 @@ $('#enter-button').on('click', function() {
   createRecord()
   $('#website-title').val('');
   $('#website-url').val('');
+  $('.bookmark-count').text('Bookmarks: ' + recordCount);
   disableBtn();
 });
 
@@ -38,7 +39,7 @@ function createRecord() {
     } else {
       recordCount++;
       inject(titleInput, urlInput);
-      console.log(recordCount);
+      console.log('record count: ' + recordCount);
     }
 }
 
@@ -59,13 +60,14 @@ function inject(title, url) {$('.child-2').prepend(`
 function readRecord() {
   $(this).parent().parent().toggleClass('read-card');
   $(this).toggleClass('red-btn');
-  console.log('it runs');
+  // $('read-count').text('Read: ' + );
 }
 
 function deleteRecord() {
   recordCount--;
   $(this).parent().parent().remove();
-  console.log(recordCount);
+  $('.bookmark-count').text('Bookmarks: ' + recordCount);
+  console.log('record count: ' + recordCount);
 }
 
 function readRecordCount() {

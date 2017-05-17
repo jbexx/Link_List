@@ -4,17 +4,19 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
   margin: 0;
 }
 
 .parent {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .child-1 {
   background-color: #455a64;
-  overflow: hidden;
+  /*overflow: hidden;*/
   height: 40%;
 }
 
@@ -30,7 +32,8 @@ h1 {
   margin: 0 5px;
 }
 
-.input {
+.input,
+.clearbtn {
   border-style: groove;
   border-width: thin;
   display: block;
@@ -41,8 +44,21 @@ h1 {
   width: 85%;
 }
 
+.input:focus {
+  outline-color: #cfd8dc;
+  outline-style: outset;
+  outline-width: 2px;
+}
+
 #enter-button {
   background-color: #ffc107;
+  border: none;
+  color: #fff;
+  font-weight: 800;
+}
+
+#clear-button {
+  background-color: #db3d3d;
   border: none;
   color: #fff;
   font-weight: 800;
@@ -53,20 +69,32 @@ h1 {
   color: #fff;
 }
 
-#enter-button:disabled {
+#clear-button:hover {
+  background-color: #915658;
+}
+
+#enter-button:disabled,
+#clear-button:disabled {
   background-color: pink;
 }
 
-.input:focus {
-  outline-color: #cfd8dc;
-  outline-style: outset;
-  outline-width: 2px;
+.fix-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookmark-count,
+.read-count {
+  color: #fff;
+  font-weight: 800;
+  margin: auto;
 }
 
 .child-2 {
   background-color: #cfd8dc;
   height: 60%;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 .bookmark {
@@ -101,7 +129,7 @@ hr {
   display: flex;
   justify-content: space-between;
 }
-/*to be injected into the #bookmark div with jquery on read button click*/
+
 .read-card {
   background-color: #f2f4f4;
   text-decoration-color: #cfd8dc;
@@ -126,32 +154,50 @@ hr {
   font-weight: 800;
 }
 
-.delete-btn {
-}
-
 /*=======Media Queries=======*/
+
+
+@media screen and (min-width: 700px) {
+
+  .parent {
+    flex-direction: row;
+  }
+
+  .child-2 {
+    height: 100vh;
+    width: 50%
+  }
+
+  .child-1 {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 50%;
+  }
+
+  h1 {
+    font-size: 2.8em;
+  }
+
+  .logo {
+    height: 35px;
+    margin: 0 10px;
+  }
+
+  .input,
+  .clearbtn {
+    width: 70%;
+  }
+
+  .bookmark-count,
+  .read-count {
+
+  }
+}
 
 @media screen and (min-width: 894px) {
 
-.parent {
-  flex-direction: row;
-}
-
-.child-1,
-.child-2 {
-  height: 100vh;
-  width: 50%
-}
-
-.child-1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.input {
-  width: 70%;
-}
 
 h1 {
   font-size: 3.5em;
