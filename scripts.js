@@ -1,6 +1,4 @@
 
-// =========Variables=========
-
 var titleInput = $('#website-title').val();
 var urlInput = $('#website-url').val();
 var enterInput = $('#enter-button');
@@ -8,84 +6,73 @@ var readInput = $('#read');
 var deleteInput = $('#delete');
 var recordCount = 0;
 
-// ==========Event Listeners========
 
-$('.input').on('keyup', disableBtn);
+
+$('.input').on('keyup', disableEnterBtn);
 
 $('#enter-button').on('click', function() {
-  createRecord()
+  createRecord();
   $('#website-title').val('');
   $('#website-url').val('');
   $('.bookmark-count').text('Bookmarks: ' + recordCount);
-  disableBtn();
+  disableEnterBtn();
 });
 
-$('.child-2').on('click', '.read-btn', readRecord);
+$('#clear-button').on('click', clearRead);
+
+$('.child-2').on('click', '.read-btn',readRecord);
 
 $('.child-2').on('click', '.delete-btn', deleteRecord);
 
-// ============Functions===========
+
 
 function createRecord() {
   var titleInput = $('#website-title').val();
   var urlInput = $('#website-url').val();
 
     if (titleInput === '') {
-      alert("You are missing the title!")
+      alert("You are missing the title!");
     } else if (urlInput === '') {
-      alert("You are missing the URL!")
+      alert("You are missing the URL!");
     } else if (!validUrl(urlInput)) {
-      alert("Your URL is invalid!")
+      alert("Your URL is invalid!");
     } else {
       recordCount++;
-      inject(titleInput, urlInput);
-      console.log('record count: ' + recordCount);
+      injectHtml(titleInput, urlInput);
     }
 }
 
-function inject(title, url) {$('.child-2').prepend(`
+function injectHtml(title, url) {
+  $('.child-2').prepend(`
   <div class="bookmark">
     <h3 class="site-title">${title}</h3>
     <hr>
     <a href="${url}" class="siteurl clickable">${url}</a>
     <hr>
-      <div class="read-delete-buttons">
+      <div class="read-delete-buttons" for="aligning buttons correctly">
         <button class="read-btn clickable" name="read-btn" type="button">Read</button>
         <button class="delete-btn clickable" name="delete-btn" type="button">Delete</button>
       </div>
   </div>
-`)
+`);
 }
 
 function readRecord() {
   $(this).parent().parent().toggleClass('read-card');
   $(this).toggleClass('red-btn');
-  // $('read-count').text('Read: ' + );
+  var readCount = $('div.read-card').length
+  $('.read-count').text('Read: ' + readCount);
+  enableClearBtn();
 }
 
 function deleteRecord() {
-  recordCount--;
+  recordCount--
   $(this).parent().parent().remove();
-  $('.bookmark-count').text('Bookmarks: ' + recordCount);
-  console.log('record count: ' + recordCount);
+  $('.bookmark-count').text('Bookmarks: ' + $('div.bookmark').length);
+  readRecord();
 }
 
-function readRecordCount() {
-  return $('.read-card').length;
-}
-
-// function validUrl(url) {
-//   var pattern = new RegExp('^(https?:\\/\\/)?'+
-//     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+
-//     '((\\d{1,3}\\.){3}\\d{1,3}))'+
-//     '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
-//     '(\\?[;&a-z\\d%_.~+=-]*)?'+
-//     '(\\#[-a-z\\d_]*)?$','i');
-//     console.log(pattern.test(url));
-//  return pattern.test(url);
-//  }
-
-function disableBtn() {
+function disableEnterBtn() {
   if ($('#website-title').val() !== '' && $('#website-url').val() !== '') {
     $('#enter-button').prop('disabled', false);
   } else {
@@ -93,12 +80,20 @@ function disableBtn() {
   }
 }
 
-function unreadRecordCount() {
-  return recordCount - readRecordCount();
+function enableClearBtn() {
+  if ($('div.read-card').length !== 0) {
+    $('#clear-button').prop('disabled', false);
+  } else {
+    $('#clear-button').prop('disabled', true);
+  }
 }
 
 function clearRead() {
   $( ".read-card" ).remove();
+  $('.bookmark-count').text('Bookmarks: ' + $('div.bookmark').length);
+  $('.read-count').text('Read: ' + $('div.read-card').length);
+  recordCount = $('div.bookmark').length;
+  enableClearBtn();
 }
 
 function validUrl(url) {
