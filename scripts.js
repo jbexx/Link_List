@@ -98,3 +98,9 @@ function unreadRecordCount() {
 function clearRead() {
   $( ".read-card" ).remove();
 }
+
+function validUrl(url) {
+    var regexQuery = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$";
+    var pattern = new RegExp(regexQuery,"i");
+    return pattern.test(url);
+}
