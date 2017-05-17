@@ -53,6 +53,10 @@ h1 {
   color: #fff;
 }
 
+#enter-button:disabled {
+  background-color: pink;
+}
+
 .input:focus {
   outline-color: #cfd8dc;
   outline-style: outset;
@@ -93,14 +97,19 @@ hr {
   text-decoration-color: #f2f4f4;
 }
 
-.flex {
+.read-delete-buttons {
   display: flex;
   justify-content: space-between;
 }
 /*to be injected into the #bookmark div with jquery on read button click*/
-.read {
+.read-card {
   background-color: #f2f4f4;
   text-decoration-color: #cfd8dc;
+}
+
+.red-btn {
+  color: red;
+  font-weight: 800;
 }
 
 .clickable:hover {
