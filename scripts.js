@@ -23,6 +23,8 @@ $('.child-2').on('click', '.read-btn', readRecord);
 
 $('.child-2').on('click', '.delete-btn', deleteRecord);
 
+// ============Functions===========
+
 function createRecord() {
   var titleInput = $('#website-title').val();
   var urlInput = $('#website-url').val();
@@ -39,8 +41,6 @@ function createRecord() {
       console.log(recordCount);
     }
 }
-
-// ===========Functions===========
 
 function inject(title, url) {$('.child-2').prepend(`
   <div class="bookmark">
