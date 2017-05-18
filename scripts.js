@@ -7,7 +7,7 @@ $('.input').on('keyup', disableEnterBtn);
 $('#enter-button').on('click', function() {
   createRecord();
   $('#website-title').val('');
-  $('#website-url').val('');
+  $('#website-url').val('https://');
   $('.bookmark-count').text('Bookmarks: ' + recordCount);
   disableEnterBtn();
 });
@@ -36,12 +36,13 @@ function createRecord() {
     }
 }
 
-function injectHtml(title, url) {
+function injectHtml(titleInput, urlInput) {
+  var urlInput = $('#website-url').val();
   $('.child-2').prepend(`
   <div class="bookmark">
-    <h3 class="site-title">${title}</h3>
+    <h3 class="site-title">${titleInput}</h3>
     <hr>
-    <a class="siteurl clickable" href="${url}" target="_blank">${url}</a>
+    <a class="siteurl clickable" href="${urlInput}" target="_blank">${urlInput}</a>
     <hr>
       <div class="read-delete-buttons" for="aligning buttons correctly">
         <button class="read-btn clickable" name="read-btn" type="button">Read</button>
