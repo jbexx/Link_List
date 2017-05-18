@@ -2,6 +2,7 @@
 var recordCount = 0;
 
 
+
 $('.input').on('keyup', disableEnterBtn);
 
 $('#enter-button').on('click', function() {
