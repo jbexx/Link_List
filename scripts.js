@@ -1,11 +1,5 @@
 
-var titleInput = $('#website-title').val();
-var urlInput = $('#website-url').val();
-var enterInput = $('#enter-button');
-var readInput = $('#read');
-var deleteInput = $('#delete');
 var recordCount = 0;
-
 
 
 $('.input').on('keyup', disableEnterBtn);
@@ -47,7 +41,7 @@ function injectHtml(title, url) {
   <div class="bookmark">
     <h3 class="site-title">${title}</h3>
     <hr>
-    <a href="${url}" class="siteurl clickable">${url}</a>
+    <a class="siteurl clickable" href="${url}" target="_blank">${url}</a>
     <hr>
       <div class="read-delete-buttons" for="aligning buttons correctly">
         <button class="read-btn clickable" name="read-btn" type="button">Read</button>
@@ -69,7 +63,8 @@ function deleteRecord() {
   recordCount--
   $(this).parent().parent().remove();
   $('.bookmark-count').text('Bookmarks: ' + $('div.bookmark').length);
-  readRecord();
+  var readCount = $('div.read-card').length
+  $('.read-count').text('Read: ' + readCount);
 }
 
 function disableEnterBtn() {

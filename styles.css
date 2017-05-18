@@ -74,7 +74,7 @@ h1 {
 
 #enter-button:disabled,
 #clear-button:disabled {
-  background-color: pink;
+  background-color: #ffc0cb;
 }
 
 .fix-flex {
@@ -188,23 +188,17 @@ hr {
   .clearbtn {
     width: 70%;
   }
-
-  .bookmark-count,
-  .read-count {
-
-  }
 }
+
 
 @media screen and (min-width: 894px) {
 
+  h1 {
+    font-size: 3.5em;
+  }
 
-h1 {
-  font-size: 3.5em;
-}
-
-.logo {
-  height: 45px;
-  margin: 0 10px;
-}
-
+  .logo {
+    height: 45px;
+    margin: 0 10px;
+  }
 }
